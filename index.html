@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>100 Reasons Why I Love You</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #020617, #0f172a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  color: #e5e7eb;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 40px;
+  border-radius: 18px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#reason {
+  font-size: 20px;
+  min-height: 60px;
+  margin: 20px 0;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+}
+
+button {
+  background: #2563eb;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Сердечки */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  color: #60a5fa;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>100 Reasons Why I Love You 💙</h1>
+  <div id="reason">Click the button</div>
+  <button onclick="nextReason()">Next Reason</button>
+</div>
+
+<script>
+// 100 Reasons for your boyfriend
+const reasons = [
+"1. You make my day brighter with every your message",
+"2. You make me feel safe in your arms",
+"3. You stay with me even on bad days",
+"4. You listen to me without judgment",
+"5. You support me in everything I do",
+"6. You believe in me when I doubt myself",
+"7. You inspire me to be a better person",
+"8. You calm me down when I’m stressed",
+"9. You are handsome with amazing body",
+"10. You always find time for me",
+"11. You accept me exactly as I am",
+"12. You respect my opinions",
+"13. You are honest and trustworthy",
+"14. You care about my feelings",
+"15. You make me feel loved every day",
+"16. You are kind and thoughtful",
+"17. You are patient when I’m difficult",
+"18. You are strong but gentle",
+"19. You make me feel understood",
+"20. You are my safe place",
+"21. You make simple things fun",
+"22. You notice the little things about me",
+"23. You motivate me to follow my dreams",
+"24. You protect me without being asked",
+"25. You make me feel special in every way",
+"26. You trust me and make me feel trusted",
+"27. You look into my eyes and I forget everything around me",
+"28. You never give up on us",
+"29. You are always there when I need you",
+"30. You make me feel important",
+"31. You are my best friend",
+"32. You respect my personal space",
+"33. Your smell, the first thing I noticed…",
+"34. Your lips , the way you kiss me",
+"35. You make me feel confident",
+"36. You keep your promises",
+"37. You make me feel appreciated",
+"38. You love me even on my bad days",
+"39. You make me feel wanted",
+"40. You care about what makes me happy",
+"41. You are thoughtful in everything you do",
+"42. You make me feel valued",
+"43. You make my heart feel full",
+"44. Your clothing style",
+"45. You are my comfort and my strength",
+"46. You are my happiness",
+"47. You are my peace",
+"48. You make love feel easy and natural",
+"49. You understand my silence",
+"50. Your creativity and ideas",
+"51. Your compliments",
+"52. You make me feel seen and heard",
+"53. You love me genuinely",
+"54. You choose me every single day",
+"55. You make me feel protected",
+"56. You are my person, my heart, my home",
+"57. You made me understand what love is, you are the first one with whom I felt it",
+"58. You are my everything",
+"59. You are the first one I started to be confident in from the first day.",
+  "60. You make my heart calm",
+"61. You make life sweeter just by being you",
+"62. You make me feel alive",
+"63. You make me feel lucky",
+"64. You make my heart choose you over and over",
+"65. You're the first person I wanted to send my photos and videos 🔞",
+"66. You always think about me and I feel it",
+"67. You are incredibly sexy",
+  "68. You give me new opportunities",
+"69. You are my safe harbor",
+"70. You are my greatest blessing",
+"71. You make my heart race",
+"72. You make me feel excited about life",
+"73. You make love feel magical",
+"74. You make me feel grateful for everything",
+"75. You make me feel cherished",
+"76. You make me feel beautiful inside and out",
+"77. You make me feel understood",
+"78.",
+"79. You agreed to travel with me.",
+"80. You make ordinary moments unforgettable",
+"81. You make me feel inspired",
+"82. You make me feel proud of us",
+"83. You make me feel like I belong",
+"84. You make me feel alive with your love",
+"85. You make me feel important every day",
+"86. You make my heart full of happiness",
+"87. You make me feel confident in our future",
+"88. You make me feel like the luckiest person alive",
+"89. You make love feel effortless",
+"90. You make every moment count",
+"91. You make me feel like I can conquer the world",
+"92. You make me feel safe to be myself",
+"93. You make me feel loved even from afar",
+"94. You make me feel appreciated",
+"95. You make me feel connected to you always",
+"96. You make my heart beat faster",
+"97. You make me feel like I matter",
+"98. You make me feel happy to be alive",
+"99. You make me feel loved more than words can say",
+"100. You are simply you — and that’s everything I need 💙"
+];
+
+let index = 0;
+
+function nextReason() {
+  const reasonEl = document.getElementById("reason");
+  reasonEl.style.animation = "none";
+  reasonEl.offsetHeight; // перезапуск анимации
+  reasonEl.style.animation = null;
+
+  reasonEl.innerText = reasons[index];
+  index = (index + 1) % reasons.length;
+}
+
+// Генерация сердечек
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💙";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 10000);
+}, 700);
+</script>
+
+</body>
+</html>
