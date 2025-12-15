@@ -18,23 +18,24 @@ body {
 
 .card {
   background: rgba(15, 23, 42, 0.9);
-  padding: 40px;
-  border-radius: 18px;
-  max-width: 500px;
+  padding: 60px;
+  border-radius: 24px;
+  max-width: 700px;   /* БОЛЬШЕ */
+  width: 90%;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
   z-index: 2;
 }
 
 h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 34px;   /* БОЛЬШЕ */
+  margin-bottom: 30px;
 }
 
 #reason {
-  font-size: 20px;
-  min-height: 60px;
-  margin: 20px 0;
+  font-size: 26px;   /* БОЛЬШЕ */
+  min-height: 90px;
+  margin: 30px 0;
   opacity: 0;
   animation: fadeIn 0.8s forwards;
 }
@@ -43,9 +44,9 @@ button {
   background: #2563eb;
   border: none;
   color: white;
-  padding: 12px 26px;
-  border-radius: 10px;
-  font-size: 16px;
+  padding: 18px 40px; /* БОЛЬШЕ */
+  border-radius: 14px;
+  font-size: 22px;   /* БОЛЬШЕ */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -63,7 +64,7 @@ button:hover {
 .heart {
   position: absolute;
   bottom: -20px;
-  font-size: 20px;
+  font-size: 26px;   /* БОЛЬШЕ */
   color: #60a5fa;
   animation: floatUp linear forwards;
   opacity: 0.8;
@@ -75,7 +76,7 @@ button:hover {
     opacity: 0.8;
   }
   to {
-    transform: translateY(-110vh) scale(1.5);
+    transform: translateY(-110vh) scale(1.6);
     opacity: 0;
   }
 }
